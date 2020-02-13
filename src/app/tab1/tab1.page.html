@@ -1,17 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+
+ion-header>
+<ion-toolbar>
+  <ion-title>
+    TodoList
+  </ion-title>
+</ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-list>
+<ion-list-header>Ma todoList</ion-list-header>
+<ion-item *ngFor="let todo of todos">
+<ion-input [(ngModel)]="todo.text"></ion-input>
+<ion-checkbox color="primary"[checked]="todo.done"[(ngModel)]="todo.done"
+slot='start'></ion-checkbox>
+</ion-item>
+</ion-list>
+<ion-fab horizontal="end" vertical="bottom" slot="fixed">
+<ion-fab-button color="danger" (click)="add()">
+  <ion-icon name="add"></ion-icon>
+</ion-fab-button>
+</ion-fab>
+<ion-fab horizontal="start" vertical="bottom" slot="fixed">
+<ion-fab-button (click)="clear()">
+  <ion-icon name="remove-outline"></ion-icon>
+</ion-fab-button>
+</ion-fab>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<!-- 
+<div *ngFor="let todo of todos" [class.done]="todo.done">
+<input type="checkbox" [(ngModel)]="todo.done">
+<input type="text" [(ngModel)]="todo.text">
+
+</div> -->
+<button (click)="clear()">clear</button>
 </ion-content>
