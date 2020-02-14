@@ -16,6 +16,7 @@ todos = [
  clear() {
   this.todos= this.todos.filter(t => !t.done);
 
+  
 }
   constructor() {}
 }
